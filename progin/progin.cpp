@@ -1,6 +1,10 @@
 ﻿#include <iostream>
 using namespace std;
 
+void printHello() {
+    std::cout << "Hello from feature branch!" << std::endl;
+}
+
 bool isEven(int number) {
     return (number % 2 == 0);
 }
@@ -26,6 +30,8 @@ int main() {
     cout << "Введите три числа через пробел: ";
     cin >> x >> y >> z;
     cout << "Максимальное число: " << findMax(x, y, z) << endl;
+
+    printHello(); // Добавленный вызов
 
     return 0;
 }
