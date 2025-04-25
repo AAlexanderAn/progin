@@ -1,6 +1,6 @@
-name: C++ CI
+name: C++ CI/CD
 
-on: [push]
+on: [push, pull_request]
 
 jobs:
   build:
@@ -14,9 +14,12 @@ jobs:
           sudo apt-get update
           sudo apt-get install -y build-essential
 
-      - name: List files (debug)
-        run: ls -R  # Покажет структуру файлов для отладки
-
-      - name: Compile project
+      - name: Build project
         run: |
-          g++ -o app progin/progin.cpp  # Путь относительно корня репозитория
+          g++ -o app progin/progin.cpp
+
+      - name: Upload artifact (optional)
+        uses: actions/upload-artifact@v3
+        with:
+          name: compiled-app
+          path: app
